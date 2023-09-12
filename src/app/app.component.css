@@ -1,0 +1,25 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: cornflowerblue;
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.headerLink{
+  padding-left: 75px;
+  color: white;
+  font-size: 18px;
+  font-family: "Times New Roman", serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}

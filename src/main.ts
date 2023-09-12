@@ -7,10 +7,9 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app/app.component";
-
+import {ItemComponent} from "./app/item/item.component"
 
 const routes: Routes = [
-  // { path: '', component: GlobalCardsComponent },
   { path: 'global', component: GlobalCardsComponent },
   { path: 'saved', component: SavedCardsComponent },
   { path: '', redirectTo: 'global', pathMatch: 'full' },
@@ -23,11 +22,12 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, ItemComponent],
   declarations: [
     AppComponent,
     GlobalCardsComponent,
     SavedCardsComponent,
+    ItemComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
