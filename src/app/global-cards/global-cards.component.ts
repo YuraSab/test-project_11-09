@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../services/UserService";
-import {WeatherService} from "../../services/WeatherService";
+import {UserService} from "../services/user.service";
+import {WeatherService} from "../services/weather.service";
+import {Observable} from "rxjs";
+import {User} from "../models/user";
+import {Weather} from "../models/weather";
 
 @Component({
   selector: 'app-global-cards',
@@ -10,25 +13,33 @@ import {WeatherService} from "../../services/WeatherService";
 
 export class GlobalCardsComponent implements OnInit {
 
-  constructor(private heroService: UserService, private weatherService: WeatherService) {}
+  constructor(private userService: UserService, private weatherService: WeatherService) {
+    this.users = this.userService.users;
+    this.weather$ = this.weatherService.weather;
+  }
 
-  users: any = [];
-  weather: any;
+  users: Observable<User[]>;
+  weather$: Observable<Weather>;
   lowestForDay: number = 0;
   higestForDay: number = 0;
   weatherIcons: any = [];
 
-  async getUsers() {
-    const users = await this.heroService.getUsers();
-    this.users = users;
-    this.getWeather(users);
+  getUsers() {
+    this.userService.getUsers().subscribe((users) => {
+      console.log(users);
+      this.getWeather(users);
+    });
   }
 
-  async getWeather(users: any) {
-    const weather = await this.weatherService.getWeather(users[0].location.coordinates.latitude, users[0].location.coordinates.longitude);
-    this.weather = weather;
-    this.getMinMax(weather);
-    this.getIcons(weather.current_weather.weathercode);
+  getWeather(users: any) {
+    this.weatherService
+      // .getWeather(users.location.coordinates.latitude, users.location.coordinates.longitude)
+      .getWeather(users[0].location.coordinates.latitude, users[0].location.coordinates.longitude)
+      .subscribe((weather: Weather) => {
+        console.log(`weather!!!!!!!!!!!!!`,weather);
+        this.getMinMax(weather);
+        this.getIcons(weather.current_weather.weathercode);
+      });
   }
 
   getMinMax(weather: any) {

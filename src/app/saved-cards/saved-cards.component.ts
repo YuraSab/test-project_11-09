@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from "../../services/WeatherService";
+import {WeatherService} from "../services/weather.service";
 
 @Component({
   selector: 'app-saved-cards',

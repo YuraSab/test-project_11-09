@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import {Weather} from "../models/weather";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-item',
@@ -7,8 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ItemComponent {
 
-  @Input() user: any;
-  @Input() weather: any;
+  @Input() user: User | null;
+  @Input() weather: Weather | null;
   @Input() lowestForDay: any;
   @Input() higestForDay: any;
   @Input() weatherIcons: any;

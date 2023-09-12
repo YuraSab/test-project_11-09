@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { GlobalCardsComponent } from "./global-cards/global-cards.component";
 import { SavedCardsComponent } from "./saved-cards/saved-cards.component";
 import { ItemComponent } from './item/item.component';
-// @ts-ignore
-import { AppModule } from "../main";
+import {AppRoutingModule} from "./app-routing.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,13 +19,13 @@ import { AppModule } from "../main";
   imports: [
     BrowserModule,
     RouterModule,
-    // @ts-ignore
-    AppModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [
     AppComponent
   ],
 })
-// @ts-ignore
+
 export class AppModule { }

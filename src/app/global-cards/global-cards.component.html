@@ -1,8 +1,8 @@
 <div class="globalCardMain">
-  <div *ngFor="let user of users" class="globalCardList">
+  <div *ngFor="let user of users |async" class="globalCardList">
     <app-item
       [user]="user"
-      [weather]="weather"
+      [weather]="weather$ |async"
       [lowestForDay]="lowestForDay"
       [higestForDay]="higestForDay"
       [weatherIcons]="weatherIcons"
