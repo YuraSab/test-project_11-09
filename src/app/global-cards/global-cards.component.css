@@ -1,0 +1,14 @@
+.globalCardMain{
+  /*width: 100%;*/
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.globalCardList{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 70px;
+}

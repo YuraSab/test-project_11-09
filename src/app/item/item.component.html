@@ -1,0 +1,31 @@
+<div class="itemMain">
+
+  <div *ngIf="user" class="itemUser">
+    <span>Name: {{user.name.title}} {{user.name.first}} {{user.name.last}}</span>
+    <span>Gender: {{user.gender}}</span>
+    <img [src]="user.picture.medium" alt="avatar" />
+    <span>
+      Location:
+      {{user.location.country}},
+      {{user.location.city}},
+      {{user.location.street.name}}:
+      {{user.location.street.number}}
+    </span>
+    <span>Email: {{user.email}}</span>
+  </div>
+
+
+  <div *ngIf="weather" class="itemUser">
+
+    <span>Temperature: {{lowestForDay}} - {{higestForDay}}{{weather.hourly_units.temperature_2m}}</span>
+    <span>Current: {{weather.current_weather.temperature}}{{weather.hourly_units.temperature_2m}}</span>
+    <span *ngFor="let icon of weatherIcons" style="display: flex">
+      <span style="font-size: 26px">{{icon}}</span>
+    </span>
+  </div>
+
+  <div class="itemButton" *ngIf="onSave">
+    <button (click)="onSave(user, weather, lowestForDay, higestForDay, weatherIcons)">Save</button>
+  </div>
+
+</div>

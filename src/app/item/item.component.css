@@ -1,0 +1,43 @@
+.itemMain{
+  display: grid;
+  grid-template-areas:
+  "user weather"
+  "user weather"
+  "save save";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(240px, 1fr);
+  gap: 30px;
+  border: 3px cornflowerblue solid;
+  border-radius: 3px;
+  padding: 20px 20px 40px 20px;
+  /*height: 300px;*/
+}
+.itemUser{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: save;
+}
+img{
+  width: 100px;
+  border: 1px black solid;
+}
+button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px cornflowerblue solid;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Tahoma, serif;
+  width: 130px;
+  padding: 8px 0;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}

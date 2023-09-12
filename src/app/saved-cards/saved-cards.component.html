@@ -1,0 +1,14 @@
+<div class="savedCardMain">
+  <div class="savedCardList">
+    <div *ngFor="let user of usersAndWeather">
+      <app-item
+        [user]="user.user"
+        [weather]="user.weather"
+        [lowestForDay]="user.lowestForDay"
+        [higestForDay]="user.higestForDay"
+        [weatherIcons]="user.weatherIcons"
+        [onSave]="false"
+      ></app-item>
+    </div>
+  </div>
+</div>

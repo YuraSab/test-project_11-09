@@ -1,0 +1,13 @@
+<div class="globalCardMain">
+  <div *ngFor="let user of users" class="globalCardList">
+
+    <app-item
+      [user]="user"
+      [weather]="weather"
+      [lowestForDay]="lowestForDay"
+      [higestForDay]="higestForDay"
+      [weatherIcons]="weatherIcons"
+      [onSave]="onSave"
+    ></app-item>
+  </div>
+</div>
