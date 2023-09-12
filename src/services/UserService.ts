@@ -12,11 +12,9 @@ export class UserService{
     let response = await fetch(this.url);
     const data = await response.json();
     // console.log(data.results[0].gender);
-    console.log(data.results);
+    console.log(`user`,data.results);
 
 
     return data.results;
   }
 }
-
-// export const userService = new UserService();

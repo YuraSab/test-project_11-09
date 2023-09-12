@@ -10,8 +10,12 @@ export class WeatherService{
   url = "https://api.open-meteo.com/v1/forecast?latitude=-19.7962&longitude=178.2180&current_weather=true&hourly=temperature_2m";
 
 
-  async getWeather() {
-    let response = await fetch(this.url);
+  async getWeather(latitude: any, longitude: any ) {
+  // async getWeather() {
+
+      let response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`);
+
+    // let response = await fetch(this.url);
     const data = await response.json();
     // console.log(data.results[0].gender);
     console.log(`weather data`,data);
