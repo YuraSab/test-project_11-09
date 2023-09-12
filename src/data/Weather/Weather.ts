@@ -42,6 +42,8 @@ export const weatherCodeToKey = {
   "95": '11',
   "96": '11',
   "99": '11',
+
+  "100": '2',
 }
 
 export const WeatherKeys = {

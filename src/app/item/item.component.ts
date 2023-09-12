@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
   @Input() user: any;
   @Input() weather: any;
@@ -14,7 +14,4 @@ export class ItemComponent implements OnInit {
   @Input() weatherIcons: any;
   @Input() onSave: any;
 
-  ngOnInit(): void {
-    console.log("My user",this.user);
-  }
 }

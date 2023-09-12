@@ -15,14 +15,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'global', pathMatch: 'full' },
 ];
 
-
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes),
   ],
-  exports: [RouterModule, ItemComponent],
+  exports: [
+    RouterModule,
+    ItemComponent,
+  ],
   declarations: [
     AppComponent,
     GlobalCardsComponent,
@@ -30,12 +32,12 @@ const routes: Routes = [
     ItemComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent,
+  ],
 
 })
 export class AppModule {}
 
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err))
-;
+platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(err));

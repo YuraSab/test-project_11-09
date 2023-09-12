@@ -18,30 +18,29 @@ export class GlobalCardsComponent implements OnInit {
   higestForDay: number = 0;
   weatherIcons: any = [];
 
-
-  async getHeroes() {
-    this.users = await this.heroService.getUsers();
-    const ff = await this.heroService.getUsers();
-    console.log(ff[0]);
-    this.getWeather(ff);
+  async getUsers() {
+    const users = await this.heroService.getUsers();
+    this.users = users;
+    this.getWeather(users);
   }
 
-  async getWeather(ff: any) {
-    console.log("sssssssss",this.users);
-    const weather = await this.weatherService.getWeather(ff[0].location.coordinates.latitude, ff[0].location.coordinates.longitude);
-    console.log(weather);
+  async getWeather(users: any) {
+    const weather = await this.weatherService.getWeather(users[0].location.coordinates.latitude, users[0].location.coordinates.longitude);
     this.weather = weather;
     this.getMinMax(weather);
     this.getIcons(weather.current_weather.weathercode);
   }
 
   getMinMax(weather: any) {
-    const mas = this.weather.hourly.temperature_2m;
-    this.lowestForDay = Math.min.apply(Math, mas);
-    this.higestForDay = Math.max.apply(Math, mas);
+    const masOfDegrees = weather.hourly.temperature_2m;
+    this.lowestForDay = Math.min.apply(Math, masOfDegrees);
+    this.higestForDay = Math.max.apply(Math, masOfDegrees);
   }
+
   getIcons(weatherCode: any) {
-    this.weatherIcons = this.weatherService.getIcons(weatherCode.toString());
+    let icons = this.weatherService.getIcons(weatherCode.toString());
+    if (!icons) icons = this.weatherService.getIcons("100");
+    this.weatherIcons = icons;
   }
 
 
@@ -51,7 +50,8 @@ export class GlobalCardsComponent implements OnInit {
     alert(`Saved!`);
   }
 
+
   ngOnInit(): void {
-    this.getHeroes();
+    this.getUsers();
   }
 }

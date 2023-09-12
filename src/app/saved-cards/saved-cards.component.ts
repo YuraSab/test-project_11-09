@@ -9,6 +9,7 @@ import {WeatherService} from "../../services/WeatherService";
 export class SavedCardsComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) {}
+
   usersAndWeather: any = [];
 
   getUsersAndWeather() {
@@ -16,7 +17,6 @@ export class SavedCardsComponent implements OnInit {
       let key = localStorage.key(i);
       // @ts-ignore
       let data = JSON.parse(localStorage.getItem(key));
-      console.log(data);
       this.usersAndWeather = [...this.usersAndWeather, data];
     }
   }
