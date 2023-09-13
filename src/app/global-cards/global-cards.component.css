@@ -11,3 +11,19 @@
   grid-template-rows: repeat(auto-fit, 1fr);
   gap: 70px;
 }
+
+@media screen and (max-width: 600px) {
+  .globalCardList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .globalCardMain{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

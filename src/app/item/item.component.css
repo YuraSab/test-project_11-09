@@ -49,3 +49,50 @@ button{
   padding: 8px 0;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
+
+.icons{
+  display: flex;
+  line-height: 36px;
+}
+
+.now{
+  display: none;
+}
+
+@media screen and (max-width: 1250px) {
+  b{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .diphysis{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .itemMain{
+    width: calc(100vw - 100px);
+  }
+}
+@media screen and (max-width: 445px) {
+  .itemMain{
+    grid-template-columns: 150px 100px;
+    font-size: 0.9rem;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .itemMain{
+    grid-template-columns: 150px 70px;
+    padding: 20px;
+  }
+  .tempLabel{
+    display: none;
+  }
+  .now{
+    display: block;
+  }
+}

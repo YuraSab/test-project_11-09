@@ -12,3 +12,50 @@
   grid-template-rows: repeat(auto-fit, 1fr);
   gap: 70px;
 }
+
+
+@media screen and (max-width: 1000px) {
+  .savedCardMain{
+    align-items: center;
+  }
+  .savedCardList{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 70px;
+  }
+}
+
+
+@media screen and (max-width: 515px) {
+  .savedCardList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .savedCardMain{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .savedCardList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .savedCardMain{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
