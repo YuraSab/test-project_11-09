@@ -22,7 +22,7 @@ export class GlobalCardsComponent implements OnInit {
   weather$: Observable<Weather>;
   lowestForDay: number = 0;
   higestForDay: number = 0;
-  weatherIcons: any = [];
+  weatherIcons: string[] = [];
 
   getUsers() {
     this.userService.getUsers().subscribe((users) => {
@@ -33,32 +33,32 @@ export class GlobalCardsComponent implements OnInit {
 
   getWeather(users: any) {
     this.weatherService
-      // .getWeather(users.location.coordinates.latitude, users.location.coordinates.longitude)
       .getWeather(users[0].location.coordinates.latitude, users[0].location.coordinates.longitude)
       .subscribe((weather: Weather) => {
-        console.log(`weather!!!!!!!!!!!!!`,weather);
         this.getMinMax(weather);
         this.getIcons(weather.current_weather.weathercode);
       });
   }
 
-  getMinMax(weather: any) {
+  getMinMax(weather: Weather) {
     const masOfDegrees = weather.hourly.temperature_2m;
     this.lowestForDay = Math.min.apply(Math, masOfDegrees);
     this.higestForDay = Math.max.apply(Math, masOfDegrees);
   }
 
-  getIcons(weatherCode: any) {
+  getIcons(weatherCode: number) {
     let icons = this.weatherService.getIcons(weatherCode.toString());
     if (!icons) icons = this.weatherService.getIcons("100");
     this.weatherIcons = icons;
   }
 
 
-  onSave(user: any, weather: any, lowestForDay: any, higestForDay: any, weatherIcons: any) {
+  onSave(user: User | null, weather: Weather | null, lowestForDay: number, higestForDay: number, weatherIcons: string[]) {
     const userAndWeather = {user: user, weather: weather, lowestForDay: lowestForDay, higestForDay: higestForDay, weatherIcons: weatherIcons };
-    localStorage.setItem(`${user.name.title} ${user.name.first} ${user.name.last}`, JSON.stringify(userAndWeather));
-    alert(`Saved!`);
+    if ( user && weather && lowestForDay && higestForDay && weatherIcons ) {
+      localStorage.setItem(`${user.name.title} ${user.name.first} ${user.name.last}`, JSON.stringify(userAndWeather));
+      alert(`Saved!`);
+    } else { alert(`Error!`) }
   }
 
 

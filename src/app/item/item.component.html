@@ -15,18 +15,9 @@
   </div>
 
   <div *ngIf="weather" class="itemUser" >
-    <span><b>Temperature:</b> {{lowestForDay}}
-      {{weather.hourly_units.temperature_2m}}
-      &#8212; {{higestForDay}}
-      {{weather.hourly_units.temperature_2m}}
-    </span>
-    <span>
-      <b>Current:</b> {{weather.current_weather.temperature}}
-<!--      {{weather.hourly_units.temperature_2m}}-->
-    </span>
-    <span *ngFor="let icon of weatherIcons" style="display: flex">
-      <span style="font-size: 28px">{{icon}}</span>
-    </span>
+    <span><b>Temperature:</b> {{lowestForDay}}{{weather.hourly_units.temperature_2m}} &#8212; {{higestForDay}}{{weather.hourly_units.temperature_2m}}</span>
+    <span><b>Current:</b> {{weather.current_weather.temperature}}{{weather.hourly_units.temperature_2m}}</span>
+    <span *ngFor="let icon of weatherIcons" style="display: flex"><span style="font-size: 28px">{{icon}}</span></span>
   </div>
 
   <div *ngIf="onSave" class="itemButton">

@@ -23,7 +23,7 @@ export class WeatherService {
       )
   }
 
-  getIcons(weatherCode: any) {
+  getIcons(weatherCode: string) {
     // @ts-ignore
     const key = weatherCodeToKey[weatherCode];
     // @ts-ignore

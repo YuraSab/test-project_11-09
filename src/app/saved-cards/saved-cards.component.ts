@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from "../services/weather.service";
+import {User} from "../models/user";
+import {Weather} from "../models/weather";
+
+type userAndWeather = {
+  user: User,
+  weather: Weather,
+  lowestForDay: number,
+  higestForDay: number,
+  weatherIcons: string[],
+}
 
 @Component({
   selector: 'app-saved-cards',
@@ -8,9 +17,7 @@ import {WeatherService} from "../services/weather.service";
 })
 export class SavedCardsComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) {}
-
-  usersAndWeather: any = [];
+  usersAndWeather: userAndWeather[] = [];
 
   getUsersAndWeather() {
     for (let i=0; i<localStorage.length; i++) {
